@@ -14,15 +14,15 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-svh w-full flex-col items-center">
-      <header className="flex w-full justify-start border-b-2 border-black p-4">
+      <header className="flex w-full justify-evenly border-b-2 border-gray-500 p-4">
         <h1 className="text-4xl font-bold">Zod Demo</h1>
       </header>
 
-      <div className="flex flex-wrap justify-between gap-4 px-4 py-6">
+      <div className="flex flex-wrap justify-evenly gap-4 px-4 py-6">
         {users.map((user) => {
           return (
             <div
-              className="flex w-80 flex-col items-start gap-1 truncate border-2 border-black px-3 py-1"
+              className="flex w-96 flex-col items-start gap-1 truncate border-2 border-gray-500 px-3 py-1"
               key={user.id}
             >
               <p className="text-lg">#{user.id + 1}</p>
@@ -33,6 +33,9 @@ export default async function Home() {
               </p>
               <p className="text-gray-500">
                 Tailwind: {getTailwindReaction(user.tailwind)}
+              </p>
+              <p className="text-gray-500">
+                Favorite Color: {user.favoriteColor}
               </p>
             </div>
           );
