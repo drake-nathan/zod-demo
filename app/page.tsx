@@ -1,4 +1,10 @@
+import { type Metadata } from "next";
+
 import { fetchUsers } from "./fetchUsers";
+
+export const metadata: Metadata = {
+  title: "Zod Demo",
+};
 
 export default async function Home() {
   const users = await fetchUsers(1);
