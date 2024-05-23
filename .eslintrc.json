@@ -14,7 +14,12 @@
   "parserOptions": {
     "project": "./tsconfig.eslint.json"
   },
-  "plugins": ["@typescript-eslint", "import", "perfectionist", "tailwindcss"],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "perfectionist",
+    "tailwindcss"
+  ],
   "rules": {
     "@typescript-eslint/consistent-type-exports": "error",
     "@typescript-eslint/consistent-type-imports": [
@@ -33,6 +38,12 @@
       "error",
       { "ignorePrimitives": { "string": true } }
     ],
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      {
+        "allowNumber": true
+      }
+    ],
     "import/no-anonymous-default-export": "off",
     "import/prefer-default-export": "off",
     "no-console": ["warn", { "allow": ["info", "warn", "error"] }],
@@ -42,7 +53,12 @@
         "groups": [
           "type",
           ["builtin", "external"],
-          ["parent-type", "sibling-type", "index-type", "internal-type"],
+          [
+            "parent-type",
+            "sibling-type",
+            "index-type",
+            "internal-type"
+          ],
           ["parent", "sibling", "index", "internal"],
           "object",
           "unknown"
