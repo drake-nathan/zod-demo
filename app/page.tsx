@@ -1,24 +1,24 @@
 import { type Metadata } from "next";
 
-import { fetchUsers } from "./fetchUsers";
+import { type HexColor, fetchUsers } from "./fetchUsers";
 
 export const metadata: Metadata = {
   title: "Zod Demo",
 };
 
 export default async function Home() {
-  const users = await fetchUsers(1);
+  const users = await fetchUsers(20);
 
   const getZodiacSignMessage = (zodiac: string) => {
     return `Your zodiac sign is ${zodiac}.`;
   };
 
-  const getTailwindReaction = (tailwind: string) => {
+  const getTailwindReaction = (tailwind: "hate" | "love") => {
     if (tailwind === "love") return "😍";
-    if (tailwind === "haet") return "😡";
+    return "😡";
   };
 
-  const getColorMessage = (color: string) => {
+  const getColorMessage = (color: HexColor) => {
     return `Your favorite color is ${color}.`;
   };
 
@@ -38,15 +38,17 @@ export default async function Home() {
               <p className="text-lg">#{user.id + 1}</p>
               <h2 className="text-xl font-bold">Name: {user.name}</h2>
               <p className="text-gray-500">Email: {user.email}</p>
-              <p className="text-gray-500">
-                {getZodiacSignMessage(user.zodiac)}
-              </p>
+              {user.zodiac && (
+                <p className="text-gray-500">
+                  {getZodiacSignMessage(user.zodiac)}
+                </p>
+              )}
               <p className="text-gray-500">
                 Tailwind: {getTailwindReaction(user.tailwind)}
               </p>
-              {/* <p className="text-gray-500">
+              <p className="text-gray-500">
                 {getColorMessage(user.favoriteColor)}
-              </p> */}
+              </p>
             </div>
           );
         })}
