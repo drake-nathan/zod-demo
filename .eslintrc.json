@@ -38,6 +38,7 @@
       "error",
       { "ignorePrimitives": { "string": true } }
     ],
+    "@typescript-eslint/restrict-plus-operands": "off",
     "@typescript-eslint/restrict-template-expressions": [
       "error",
       {
